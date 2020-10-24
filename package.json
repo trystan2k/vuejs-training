@@ -1,0 +1,24 @@
+{
+  "name": "vuejs-training",
+  "version": "0.0.1",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "description": "Simple application built in Vuejs training. It includes also a backend built with Strapi",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trystan2k/vuejs-training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trystan2k/vuejs-training/issues"
+  },
+  "homepage": "https://github.com/trystan2k/vuejs-training#readme"
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transacaos",
+  "info": {
+    "name": "transacao",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "comprador_id": {
+      "type": "email",
+      "required": true
+    },
+    "vendedor_id": {
+      "type": "email",
+      "required": true
+    },
+    "produto": {
+      "type": "component",
+      "repeatable": false,
+      "component": "produto.produto",
+      "required": true
+    },
+    "endereco": {
+      "type": "component",
+      "repeatable": false,
+      "component": "endereco.endereco",
+      "required": true
+    }
+  }
+}

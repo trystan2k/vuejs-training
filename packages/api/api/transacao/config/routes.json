@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/transacoes",
+      "handler": "transacao.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/transacoes/count",
+      "handler": "transacao.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/transacoes/:id",
+      "handler": "transacao.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/transacoes",
+      "handler": "transacao.create",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

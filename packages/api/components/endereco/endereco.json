@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_endereco_enderecos",
+  "info": {
+    "name": "endereco",
+    "icon": "ad"
+  },
+  "options": {
+    "privateAttributes": ["id"]
+  },
+  "attributes": {
+    "zipcode": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  }
+}
