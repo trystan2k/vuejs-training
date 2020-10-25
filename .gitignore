@@ -9,6 +9,7 @@ packages/**/license.txt
 packages/**/exports
 packages/**/.cache
 packages/**/build
+packages/**/dist
 packages/**/uploads
 packages/**/package-lock.json
 
