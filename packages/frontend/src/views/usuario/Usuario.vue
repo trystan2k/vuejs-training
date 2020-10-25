@@ -30,6 +30,9 @@ export default {
       this.$router.push("/login");
     },
   },
+  created() {
+    document.title = 'Usuário';
+  }
 };
 </script>
 
