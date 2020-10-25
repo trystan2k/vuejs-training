@@ -2,7 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { API_URL } from "./services";
 import PaginaCarregando from "@/components/PaginaCarregando.vue";
 import ErroNotificacao from "@/components/ErroNotificacao.vue";
 
@@ -24,7 +23,7 @@ Vue.filter("numeroPreco", (valor) => {
 });
 
 Vue.filter("getImageFullUrl", (url) => {
-  return `${API_URL}${url}`;
+  return `${url}`;
 });
 
 new Vue({
