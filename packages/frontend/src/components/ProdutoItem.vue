@@ -6,7 +6,7 @@
     >
       <img
         v-if="produto.fotos && produto.fotos.length > 0"
-        :src="produto.fotos[0].formats.thumbnail.url | getImageFullUrl"
+        :src="produto.fotos[0].url"
         :alt="produto.fotos[0].name"
       />
     </router-link>

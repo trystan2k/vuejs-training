@@ -3,7 +3,7 @@
     <div v-if="produto" class="produto">
       <ul class="fotos" v-if="produto.fotos">
         <li v-for="(foto, index) in produto.fotos" :key="index">
-          <img :src="foto.url | getImageFullUrl" :alt="foto.name" />
+          <img :src="foto.url" :alt="foto.name" />
         </li>
       </ul>
       <div class="info">

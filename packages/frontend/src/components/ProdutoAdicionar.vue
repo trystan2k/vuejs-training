@@ -19,6 +19,7 @@
       value="Adicionar Produto"
       @click.prevent="adicionarProduto"
     />
+    <erro-notificacao :erros="erros"></erro-notificacao>
   </form>
 </template>
 
@@ -35,6 +36,7 @@ export default {
         fotos: null,
         vendido: "false",
       },
+      erros: []
     };
   },
   methods: {
@@ -50,11 +52,32 @@ export default {
       form.append("data", JSON.stringify(this.produto));
       return form;
     },
-    adicionarProduto() {
+    async adicionarProduto(event) {
       const produto = this.formatarProduto();
-      api.post("/produtos", produto).then(() => {
-        this.$store.dispatch("getUsuarioProdutos");
-      });
+
+      const button = event.currentTarget;
+      button.value = 'Adicionando...';
+      button.setAttribute('disabled', "");
+
+      try {
+        await api.post("/produtos", produto);
+        await this.$store.dispatch("getUsuarioProdutos");
+        button.value = 'Adicionar Produto';
+        this.produto = {
+          nome: "",
+          preco: "",
+          descricao: "",
+          fotos: null,
+          vendido: "false",
+        }
+        button.removeAttribute('disabled');
+      } catch (erro) {
+        if (erro.response && erro.response.data && erro.response.data.message[0]) {
+          this.erros = this.erros.concat(erro.response.data.message[0].messages);
+        } else {
+          this.erros = this.erros.concat([erro])
+        }
+      }
     },
   },
 };

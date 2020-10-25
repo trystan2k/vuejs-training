@@ -22,10 +22,6 @@ Vue.filter("numeroPreco", (valor) => {
   }
 });
 
-Vue.filter("getImageFullUrl", (url) => {
-  return `${url}`;
-});
-
 new Vue({
   router,
   store,

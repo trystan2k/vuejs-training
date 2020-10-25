@@ -6,8 +6,8 @@
           <router-link :to="{ name: 'produto', params: { id: produto.slug } }">
             <img
               v-if="produto.fotos && produto.fotos.length > 0"
-              :src="produto.fotos[0].src"
-              :alt="produto.fotos[0].titulo"
+              :src="produto.fotos[0].url"
+              :alt="produto.fotos[0].name"
             />
             <p class="preco">{{ produto.preco | numeroPreco }}</p>
             <h2 class="titulo">{{ produto.nome }}</h2>
