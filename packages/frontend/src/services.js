@@ -1,7 +1,5 @@
 import axios from "axios";
 
-console.log(process.env.VUE_APP_API_URL)
-
 export const API_URL = process.env.VUE_APP_API_URL;
 
 const axiosInstance = axios.create({
@@ -36,10 +34,10 @@ export const api = {
     return axiosInstance.put(endpoint, body);
   },
   createUser(body) {
-    return axios.post("http://localhost:1337/auth/local/register", body);
+    return axios.post(`${API_URL}/auth/local/register`, body);
   },
   login(body) {
-    return axios.post("http://localhost:1337/auth/local", body);
+    return axios.post(`${API_URL}/auth/local`, body);
   },
 };
 

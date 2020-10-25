@@ -24,7 +24,6 @@ Vue.filter("numeroPreco", (valor) => {
 });
 
 Vue.filter("getImageFullUrl", (url) => {
-  console.log("hey", url);
   return `${API_URL}${url}`;
 });
 

@@ -1,6 +1,7 @@
 <template>
   <section>
     <h2>Adicionar Produto</h2>
+    <erro-notificacao :erros="erros"></erro-notificacao>
     <produto-adicionar></produto-adicionar>
     <h2>Seus Produtos</h2>
     <transition-group v-if="usuario_produtos" nome="list" tag="ul">
@@ -27,12 +28,18 @@ export default {
     ProdutoAdicionar,
     ProdutoItem,
   },
+  data() {
+    return {
+      erros: []
+    }
+  },
   computed: {
     ...mapState(["login", "usuario", "usuario_produtos"]),
   },
   methods: {
     ...mapActions(["getUsuarioProdutos"]),
     deletarProduto(id) {
+      this.erros = [];
       const confirmar = window.confirm("Deseja remover este produto?");
       if (confirmar) {
         api
@@ -41,7 +48,11 @@ export default {
             this.getUsuarioProdutos();
           })
           .catch((error) => {
-            console.log(error.response);
+            if (erro.response && erro.response.data && erro.response.data.message[0]) {
+              this.erros = this.erros.concat(erro.response.data.message[0].messages);
+            } else {
+              this.erros = this.error.concat([error])
+            }
           });
       }
     },

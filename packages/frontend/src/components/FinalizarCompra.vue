@@ -56,7 +56,11 @@ export default {
         await this.$store.dispatch("getUsuario");
         await this.criarTransacao();
       } catch (erro) {
-        this.erros = this.erros.concat(erro.response.data.message[0].messages);
+        if (erro.response && erro.response.data && erro.response.data.message[0]) {
+          this.erros = this.erros.concat(erro.response.data.message[0].messages);
+        } else {
+          this.erros = this.error.concat([error])
+        }
       }
     },
     finalizarCompra() {

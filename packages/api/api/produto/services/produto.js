@@ -34,7 +34,6 @@ module.exports = {
 
   async vendido(params) {
     const entity = await strapi.query('produto').findOne(params);
-    console.log('entity', entity)
     if (entity) {
       strapi.query('produto').update({ id: entity.id }, {
         vendido: 'true'
